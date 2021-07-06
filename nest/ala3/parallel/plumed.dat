@@ -1,0 +1,24 @@
+MOLINFO MOLTYPE=protein STRUCTURE=ala3.pdb
+FLUSH STRIDE=500
+
+energy: ENERGY 
+phi1:   TORSION ATOMS=5,7,9,15       NOPBC
+psi1:   TORSION ATOMS=7,9,15,17      NOPBC
+phi2:   TORSION ATOMS=15,17,19,25    NOPBC
+psi2:   TORSION ATOMS=17,19,25,27    NOPBC
+phi3:   TORSION ATOMS=25,27,29,35    NOPBC
+psi3:   TORSION ATOMS=27,29,35,37    NOPBC
+
+EXTERNAL ARG=phi2 FILE=factor1.grid LABEL=factor1
+EXTERNAL ARG=phi1 FILE=factor2.grid LABEL=factor2
+EXTERNAL ARG=phi3 FILE=factor3.grid LABEL=factor3
+EXTERNAL ARG=psi2 FILE=factor4.grid LABEL=factor4
+EXTERNAL ARG=psi3 FILE=factor5.grid LABEL=factor5
+EXTERNAL ARG=psi1 FILE=factor6.grid LABEL=factor6
+
+
+PRINT ...
+ARG=phi1,psi1,phi2,psi2,phi3,psi3,factor1.bias,factor2.bias,factor3.bias,factor4.bias,factor5.bias,factor6.bias
+STRIDE=1
+FILE=COLVAR
+... PRINT

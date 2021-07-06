@@ -13,3 +13,6 @@ Input trajectory for Ala3 used in the manuscript.
 
 ## MP_paper.obj
 Pickle containing the original factorized model used in the manuscript.
+
+## nest/
+Directory containing all the inputs required for reproducing simulations.
